@@ -4,19 +4,22 @@
 
 BEGIN { chdir 't'; @INC = qw "lib ../lib"; require './test.pl' }
 
+use Config;
 plan 17;
 
 # Functions for turning to-do-ness on and off (as there are so many
 # to-do tests) 
-sub on { $::TODO = "(?{}) implementation is screwy" }
+sub on(;$) { $::TODO = @_ == 0 || shift @_ ? "(?{}) implementation is screwy" : undef }
 sub off { undef $::TODO }
 
-on;
+on $::Config{useithreads};
 
 fresh_perl_is <<'CODE', '7817', {}, '(?{}) has its own lexical scope';
  my $x = 7; print "a" =~ /(?{ print $x; my $x = 8; print $x; my $y })a/;
  print $x
 CODE
+
+on;
 
 fresh_perl_is <<'CODE',
  for my $x("a".."c") {
@@ -36,6 +39,8 @@ CODE
  '1a82a93a104a85a96a101a 1b82b93b104b85b96b101b 1c82c93c104c85c96c101c ',
   {},
  'multiple (?{})s in loop with lexicals';
+
+on $::Config{useithreads};
 
 fresh_perl_is <<'CODE', '7817', {}, 'run-time re-eval has its own scope';
  my $x = 7; print "a" =~ /(?{ print $x; my $x = 8; print $x; my $y })a/;
@@ -74,6 +79,8 @@ fresh_perl_is <<'CODE', '1782793710478579671017', {},
 CODE
  'multiple (?{})s in "foo" =~ /$string/x';
 
+on;
+
 fresh_perl_is <<'CODE', '123123', {},
   for my $x(1..3) {
    push @regexps = qr/(?{ print $x })a/;
@@ -110,20 +117,28 @@ is $pack, 'bar', '/$text/ containing (?{}) inherits package';
 }
 is $re, '(?^m:)', '/$text/ containing (?{}) inherits pragmata';
 
-on;
+on $::Config{useithreads};
 
 fresh_perl_is <<'CODE', 'ok', { stderr => 1 }, '(?{die})';
  eval { "a" =~ /(?{die})a/ }; print "ok"
 CODE
+
+on(!$::Config{useithreads} || $::Config{ccflags} =~ /\bDDEBUGGING\b/);
+
 fresh_perl_is <<'CODE', 'ok', { stderr => 1 }, '(?{last})';
  { "a" =~ /(?{last})a/ }; print "ok"
 CODE
+
 fresh_perl_is <<'CODE', 'ok', { stderr => 1 }, '(?{next})';
  { "a" =~ /(?{last})a/ }; print "ok"
 CODE
+
 fresh_perl_is <<'CODE', 'ok', { stderr => 1 }, '(?{return})';
  print sub { "a" =~ /(?{return "ok"})a/ }->();
 CODE
+
+on;
+
 fresh_perl_is <<'CODE', 'ok', { stderr => 1 }, '(?{goto})';
  "a" =~ /(?{goto _})a/; die; _: print "ok"
 CODE

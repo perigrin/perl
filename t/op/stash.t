@@ -7,6 +7,7 @@ BEGIN {
 
 BEGIN { require "./test.pl"; }
 
+use Config;
 plan( tests => 51 );
 
 # Used to segfault (bug #15479)
@@ -254,7 +255,7 @@ fresh_perl_is(
     ::like "$obj", qr "^rile=ARRAY\(0x[\da-f]+\)\z",
      'objects stringify the same way when their stashes are moved';
     {
-	local $::TODO = "fails under threads";
+	local $::TODO = $::Config{useithreads} ? "fails under threads" : undef;
 	::is eval '__PACKAGE__', 'rile',
 	 '__PACKAGE__ returns the same when the current stash is moved';
     }
@@ -271,7 +272,7 @@ fresh_perl_is(
     ::like "$obj", qr "^rile=ARRAY\(0x[\da-f]+\)\z",
      'objects stringify the same way when their stashes are detached';
     {
-	local $::TODO = "fails under threads";
+	local $::TODO = $::Config{useithreads} ? "fails under threads" : undef;
 	::is eval '__PACKAGE__', 'rile',
 	 '__PACKAGE__ returns the same when the current stash is detached';
     }
