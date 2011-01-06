@@ -4,9 +4,21 @@ our $VERSION = '1.02';
 
 use strict;
 use warnings;
+use Config;
 
-my $no = join('|',qw(GDBM_File ODBM_File NDBM_File DB_File
-                     VMS VMS-DCLsym VMS-Stdio Sys-Syslog IPC-SysV I18N-Langinfo));
+my @no;
+# duplicates logic from Configure (mostly)
+push @no, "DB_File" unless $Config{i_db};
+push @no, "GDBM_File" unless $Config{i_gdbm};
+push @no, "I18N-Langinfo" unless $Config{i_langinfo} && $Config{i_nl_langinfo};
+push @no, "IPC-SysV" unless $Config{d_msg} || $Config{d_sem} || $Config{d_shm};
+push @no, "NDBM_File" unless $Config{d_ndbm};
+push @no, "ODBM_File"
+  unless ($Config{i_dbm} || $Config{i_rpcsvcdbm}) && !$Config{d_cplusplus};
+push @no, "VMS.*" unless $^O eq "VMS";
+push @no, "Win32.*" unless $^O eq "MSWin32" || $^O eq "cygwin";
+
+my $no = join('|', @no);
 $no = qr/^(?:$no)$/i;
 
 my %ext;
