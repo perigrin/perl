@@ -1,0 +1,4 @@
+0.03  Wed, 01 Dec 2010 19:42:04 +0100
+    * Make coercions to ArrayRef work (Closes RT#60604) (Florian Ragwitz).
+    * The test suite now uses Test::Fatal instead of Test::Exception (Karen
+      Etheridge).

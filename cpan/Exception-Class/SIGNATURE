@@ -1,0 +1,46 @@
+This file contains message digests of all files listed in MANIFEST,
+signed via the Module::Signature module, version 0.61.
+
+To verify the content in this distribution, first make sure you have
+Module::Signature installed, then type:
+
+    % cpansign -v
+
+It will check each file's integrity, as well as the signature's
+validity.  If "==> Signature verified OK! <==" is not displayed,
+the distribution may already have been compromised, and you should
+not run its Makefile.PL or Build.PL.
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+SHA1 6abed8715d00761ffed9521240572b301f1202a1 Changes
+SHA1 0862af1f87fdd7f860de1a139a0e1e1cf96a8eeb INSTALL
+SHA1 23c628b4a8a36738405ccdacaeb912d2e727b4c0 LICENSE
+SHA1 e51d6b5ec67e360e3d63c51cf891ddb725f09a1a MANIFEST
+SHA1 6ad2ee15d12e3c34ac3b53ea844367842e745c79 META.json
+SHA1 765c9f9e2a8a9d0e1ccca52b511af60bc75ea2a6 META.yml
+SHA1 f70e4e8b3fb0950cbef99aa5fd962c0e0b577df2 Makefile.PL
+SHA1 a3af01d6c5b73951387630d8e6aa036eb1ac4ee1 README
+SHA1 d770da081da12a7af73df3afacd3f54fcb7fc8e4 bench/simple
+SHA1 c0226d42032fd5d2fd582493f7d0c9afd80c304f dist.ini
+SHA1 f8215334f3f6ffac55a5f01b47efa1fdc6afd2de lib/Exception/Class.pm
+SHA1 a9e11e8a1195fcd02f65eedae486b8a91871a5d0 lib/Exception/Class/Base.pm
+SHA1 5e25a15317b2df52fa034a1e4ae61de2df03c41d t/basic.t
+SHA1 d8c9c6fb09f3cb23d581b4285eff8db2255c9c92 t/caught.t
+SHA1 ba6dca4be89b1e767dd17e8e2afd2b1f591a85dc t/context.t
+SHA1 177f8f91e22f65f4556b967051a9086893f773b2 t/ecb-standalone.t
+SHA1 305c0aefcef898bc02f2398986c09b26da8480b1 t/ignore.t
+SHA1 24b525e3c18f37f8022a01ec30de757cefb679ff t/release-eol.t
+SHA1 961a1e2c92d836c8cad2d34b784cbc75345dec63 t/release-kwalitee.t
+SHA1 455d1dd1867212a665ad5ea4126b572411de300c t/release-no-tabs.t
+SHA1 07d73f5b304cd92c378a6de7a54976a9c810f856 t/release-pod-coverage.t
+SHA1 0f02aafca520bf06f505a7f264455151a08c6f6a t/release-pod-spell.t
+SHA1 0bf5c7d045bcd17b72749ea8d57bfc2435913095 t/release-pod.t
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.10 (GNU/Linux)
+
+iEYEARECAAYFAkwouKYACgkQIgMCsV8qvRJAYQCeNHKn79LDtcqHP9ybypKrpzUf
+HpAAn0Y3zEsRPcwJwy8pqvYoOqg1lrqA
+=iklj
+-----END PGP SIGNATURE-----

@@ -1,0 +1,23 @@
+---
+abstract: 'Add plugin support to your Moose classes via roles.'
+author:
+  - 'Guillermo Roditi, <groditi@cpan.org>'
+build_requires:
+  Test::More: 0
+distribution_type: module
+generated_by: 'Module::Install version 0.80'
+license: perl
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: MooseX-Object-Pluggable
+no_index:
+  directory:
+    - inc
+    - t
+requires:
+  Module::Pluggable::Object: 0
+  Moose: 0.35
+resources:
+  license: http://dev.perl.org/licenses/
+version: 0.0011

@@ -1,0 +1,29 @@
+---
+abstract: 'Role for daemonizing your Moose based application'
+author:
+  - 'Chris Prather  C<< <chris@prather.org >>'
+build_requires:
+  ExtUtils::MakeMaker: 6.42
+  Test::Moose: 0
+  Test::More: 0
+configure_requires:
+  ExtUtils::MakeMaker: 6.42
+distribution_type: module
+generated_by: 'Module::Install version 1.00'
+license: perl
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: MooseX-Daemonize
+no_index:
+  directory:
+    - examples
+    - inc
+    - t
+requires:
+  Moose: 0.33
+  MooseX::Getopt: 0.07
+  MooseX::Types::Path::Class: 0
+resources:
+  license: http://dev.perl.org/licenses/
+version: 0.13

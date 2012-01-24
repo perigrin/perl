@@ -1,0 +1,8 @@
+lib/Hash/Util/FieldHash/Compat.pm
+lib/Hash/Util/FieldHash/Compat/Heavy.pm
+Makefile.PL
+MANIFEST			This list of files
+MANIFEST.SKIP
+t/01_basic.t
+META.yml                                 Module meta-data (added by MakeMaker)
+SIGNATURE                                Public-key signature (added by MakeMaker)

@@ -1,0 +1,15 @@
+Changes
+LICENSE
+MANIFEST
+META.json
+META.yml
+Makefile.PL
+README
+dist.ini
+lib/MooseX/LazyRequire.pm
+lib/MooseX/LazyRequire/Meta/Attribute/Trait/LazyRequire.pm
+t/basic.t
+t/release-eol.t
+t/release-no-tabs.t
+t/release-pod-coverage.t
+t/release-pod-syntax.t

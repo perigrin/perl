@@ -1,0 +1,59 @@
+This file contains message digests of all files listed in MANIFEST,
+signed via the Module::Signature module, version 0.66.
+
+To verify the content in this distribution, first make sure you have
+Module::Signature installed, then type:
+
+    % cpansign -v
+
+It will check each file's integrity, as well as the signature's
+validity.  If "==> Signature verified OK! <==" is not displayed,
+the distribution may already have been compromised, and you should
+not run its Makefile.PL or Build.PL.
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+SHA1 7993d66bcaf63571e70cadc1e0ecb1498c6a193e Changes
+SHA1 80e345bffac0ecb01b0293b9825111a2c33b090b INSTALL
+SHA1 c715d20265d2931c7564fc64abfdc4f8ff33e297 LICENSE
+SHA1 222afadc264d57a2e17d19ca2533e946ee8c4bf7 MANIFEST
+SHA1 631dad07d54e115cf279537c45dfe612ad6fd2f5 META.json
+SHA1 0c708e06d75902e401b410766a2e9cc9edbdde48 META.yml
+SHA1 e41783f5e3820d277e72ed8f46f2201d5b489af7 Makefile.PL
+SHA1 b0f16f9c1c2f0cfb75612118ad0178a9f4286ba0 README
+SHA1 579506af92fd4049d11414894c8b0466d9078f91 dist.ini
+SHA1 a2da673d9b55a8527f5b693224b861536b35f10b lib/Log/Dispatch.pm
+SHA1 a5f9c73f5fafdad33d75dd58ad8107cebfa39917 lib/Log/Dispatch/ApacheLog.pm
+SHA1 593ecab31ab9d9789e5843182df0c2a21d144ff8 lib/Log/Dispatch/Base.pm
+SHA1 9caf072fc052761a257d6fc5263286d1bbe2fb3e lib/Log/Dispatch/Email.pm
+SHA1 2e4b746d1d7b7c4256ed5f1a53766ef006dd7aa4 lib/Log/Dispatch/Email/MIMELite.pm
+SHA1 120f0e6e391c7b013af5f3c7255e9573a8cd78ec lib/Log/Dispatch/Email/MailSend.pm
+SHA1 3eefbe062cc14da3c244cf3833eafcc41b5d0fea lib/Log/Dispatch/Email/MailSender.pm
+SHA1 9de13a92eb16eedcbbb51d803294a8500935a6ac lib/Log/Dispatch/Email/MailSendmail.pm
+SHA1 da3600152b9679c20ed4479a8c440cfd9c273159 lib/Log/Dispatch/File.pm
+SHA1 7c1a22198a07d6bc0743d9e48bc27c411a04eba1 lib/Log/Dispatch/File/Locked.pm
+SHA1 2d1336430f86f3fda2739197efb9d30d9ef083ee lib/Log/Dispatch/Handle.pm
+SHA1 28a0873548aae4e31cce0bd8334c47b0d5d9251e lib/Log/Dispatch/Null.pm
+SHA1 07e81bd1118d2537fe09a8607b8dd4d72fdb0ea1 lib/Log/Dispatch/Output.pm
+SHA1 723103444c1c01d8f70a03b194de19951a1d2cc5 lib/Log/Dispatch/Screen.pm
+SHA1 86e0eddaeca8d50943cf014a83bf49dbafc679fd lib/Log/Dispatch/Syslog.pm
+SHA1 898a7de5445e3a2fdb0619ef3755ec63d2c0713b t/00-compile.t
+SHA1 d244bf0cb98ae40026b43c647a85dfb394fff94c t/01-basic.t
+SHA1 071817b6ad68b790908b38dfe9657afcd5d6c200 t/02-email-exit.t
+SHA1 762bc1b1edd792093415cdb7f3e1cadb0e74345d t/03-short-syntax.t
+SHA1 cae62e2988e1623b42d5af18c7059af9225be2ce t/email-exit-helper.pl
+SHA1 66f75fd01fd1c3c4b3fad0a91d66d41c9aa2104d t/lib/Log/Dispatch/TestUtil.pm
+SHA1 a032c41ef6887fab1b900669c2d304fab46680e2 t/release-eol.t
+SHA1 455d1dd1867212a665ad5ea4126b572411de300c t/release-no-tabs.t
+SHA1 867fa319e231e8520cf41baeaf1eba3746031ebb t/release-pod-coverage.t
+SHA1 436b024e862590cb1ef8d608b683bb93bf0056a4 t/release-pod-spell.t
+SHA1 b30cbdfaf935017c4568c0c91b242438cb87786e t/release-pod-syntax.t
+SHA1 16667ed5d34e132bb361b463cd451e880390f334 t/sendmail
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.10 (GNU/Linux)
+
+iEYEARECAAYFAk2Dxj0ACgkQIgMCsV8qvRJ+pACgjrgFUrXVGZUSFj7hFUQl73gJ
+QUgAoJOXzlEKo8yHEtmgq1PO0spPxyhC
+=JgtO
+-----END PGP SIGNATURE-----

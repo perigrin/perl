@@ -1,0 +1,26 @@
+--- #YAML:1.0
+name:               Params-Util
+version:            1.04
+abstract:           Simple, compact and correct param-checking functions
+author:
+    - Adam Kennedy <adamk@cpan.org>
+license:            perl
+distribution_type:  module
+configure_requires:
+    ExtUtils::CBuilder:   0.27
+    ExtUtils::MakeMaker:  6.52
+build_requires:
+    ExtUtils::MakeMaker:  6.52
+    File::Spec:           0.80
+    Test::More:           0.42
+requires:
+    perl:          5.00503
+    Scalar::Util:  1.18
+no_index:
+    directory:
+        - t
+        - inc
+generated_by:       ExtUtils::MakeMaker version 6.56
+meta-spec:
+    url:      http://module-build.sourceforge.net/META-spec-v1.4.html
+    version:  1.4

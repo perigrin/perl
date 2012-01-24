@@ -1,0 +1,24 @@
+Revision history for Eval-Closure
+
+0.06  2011-06-05
+      - The dumped source from setting $ENV{EVAL_CLOSURE_PRINT_SOURCE} didn't
+        show the captured variable creation properly. (Dave Rolsky)
+
+0.05  2011-04-25
+      - make sure Perl::Tidy doesn't look at @ARGV (rafl)
+
+0.04  2011-04-15
+      - stop using Memoize, it apparently doesn't work properly under mod_perl
+        in some situations (mateu)
+
+0.03  2011-03-02
+      - don't add #line directives when the debugger is active (alh)
+
+0.02  2011-01-26
+      - add terse_error option for throwing only the actual compilation error
+        (Shawn M Moore)
+      - allow also specifying the line number for error reporting
+        (Shawn M Moore)
+
+0.01  2010-11-14
+      - Initial release

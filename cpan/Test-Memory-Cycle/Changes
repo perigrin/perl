@@ -1,0 +1,40 @@
+Revision history for Perl extension Test::Memory::Cycle
+
+1.04    Sun Aug  6 22:09:36 CDT 2006
+        [FIXES]
+        * Updated the minimum version requirements.
+
+        [ENHANCEMENTS]
+        * Added support for detecting closures.  Thanks Yuval Kogman.
+
+        [INTERNALS]
+        * Internal code optimizations
+
+1.02    Tue May 17 11:22:09 CDT 2005
+        [ENHANCEMENTS]
+        * Added weakened_memory_cycle_ok() and
+          weakened_memory_cycle_exists().  Thanks, Stevan Little.
+
+
+1.00    Sun Jan 23 01:00:32 CST 2005
+        [ENHANCEMENTS]
+        * Added memory_cycle_exists().  Thanks, Stevan Little.
+
+
+0.04    Tue Mar  9 23:42:26 CST 2004
+
+        [FIXES]
+        * t/pod-coverage.t works better now.
+
+0.02    Mon Jan 19 23:01:29 CST 2004
+
+        [ENHANCEMENTS]
+        * Cleaned up formatting a bit.
+
+        [INTERNALS]
+        * Added new tests.
+
+0.01    Sun Nov 30 23:45:27 CST 2003
+        Brand new, and ready to go.  t/family.t doesn't work yet,
+        and it needs more robust testing, but I think it's pretty
+        cool anyway.

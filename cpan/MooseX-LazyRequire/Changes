@@ -1,0 +1,22 @@
+0.07  Mon, 04 Apr 2011 18:08:34 +0200
+  * Allow this module to be used with attributes in roles when using Moose
+    1.9900+ (Dave Rolsky).
+
+0.06  Mon, 19 Jul 2010 05:19:42 +0200
+  * Updated to avoid warnings from Moose 1.09 (Dave Rolsky).
+
+0.05  Fri, 07 May 2010 19:40:10 +0200
+  * Improve distribution metadata.
+
+0.04  Sat, 12 Sep 2009 06:05:12 +0900
+  * Keep dzil from hiding the 1; at the end (Jesse Luehrs).
+
+0.03  Mon, 17 Aug 2009 11:12:11 +0200
+  * Remove code that wasn't meant to be there in the last release.
+
+0.02  Mon, 17 Aug 2009 11:08:33 +0200
+  * Rename the attribute option from 'lazy_require' to 'lazy_required'.
+  * Depend on Test::More 0.88 for done_testing.
+
+0.01  Thu, 13 Aug 2009 02:17:02 +0200
+  * Initial release.

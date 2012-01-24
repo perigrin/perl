@@ -1,0 +1,26 @@
+---
+abstract: 'turn your Moose class into a singleton'
+author:
+  - 'Shawn M Moore <sartak@gmail.com>'
+build_requires:
+  ExtUtils::MakeMaker: 6.42
+  Test::Fatal: 0
+  Test::More: 0.88
+  Test::Requires: 0
+configure_requires:
+  ExtUtils::MakeMaker: 6.30
+dynamic_config: 0
+generated_by: 'Dist::Zilla version 4.300003, CPAN::Meta::Converter version 2.112150'
+license: perl
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: MooseX-Singleton
+requires:
+  Moose: 1.10
+  Scalar::Util: 0
+resources:
+  bugtracker: http://rt.cpan.org/NoAuth/Bugs.html?Dist=MooseX-Singleton
+  repository: git://git.moose.perl.org/MooseX-Singleton.git
+version: 0.29
+x_authority: cpan:SARTAK

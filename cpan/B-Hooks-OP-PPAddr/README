@@ -1,0 +1,61 @@
+NAME
+    B::Hooks::OP::PPAddr - Hook into opcode execution
+
+SYNOPSIS
+        #include "hook_op_check.h"
+        #include "hook_op_ppaddr.h"
+
+        STATIC OP *
+        execute_entereval (pTHX_ OP *op, void *user_data) {
+            ...
+        }
+
+        STATIC OP *
+        check_entereval (pTHX_ OP *op, void *user_data) {
+            hook_op_ppaddr (op, execute_entereval, NULL);
+        }
+
+        hook_op_check (OP_ENTEREVAL, check_entereval, NULL);
+
+DESCRIPTION
+    This module provides a c api for XS modules to hook into the execution
+    of perl opcodes.
+
+    ExtUtils::Depends is used to export all functions for other XS modules
+    to use. Include the following in your Makefile.PL:
+
+        my $pkg = ExtUtils::Depends->new('Your::XSModule', 'B::Hooks::OP::PPAddr');
+        WriteMakefile(
+            ... # your normal makefile flags
+            $pkg->get_makefile_vars,
+        );
+
+    Your XS module can now include "hook_op_ppaddr.h".
+
+TYPES
+  typedef OP *(*hook_op_ppaddr_cb_t) (pTHX_ OP *, void *user_data)
+    Type that callbacks need to implement.
+
+FUNCTIONS
+  void hook_op_ppaddr (OP *op, hook_op_ppaddr_cb_t cb, void *user_data)
+    Replace the function to execute "op" with the callback "cb". "user_data"
+    will be passed to the callback as the last argument.
+
+  void hook_op_ppaddr_around (OP *op, hook_op_ppaddr_cb_t before, hook_op_ppaddr_cb_t after, void *user_data)
+    Register the callbacks "before" and "after" to be called before and
+    after the execution of "op". "user_data" will be passed to the callback
+    as the last argument.
+
+SEE ALSO
+    B::Hooks::OP::Check
+
+AUTHOR
+    Florian Ragwitz <rafl@debian.org>
+
+COPYRIGHT AND LICENSE
+    Copyright (c) 2008 Florian Ragwitz
+
+    This module is free software.
+
+    You may distribute this code under the same terms as Perl itself.
+

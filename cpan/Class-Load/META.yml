@@ -1,0 +1,27 @@
+---
+abstract: "a working (require \"Class::Name\") and more"
+author:
+  - 'Shawn M Moore <sartak at bestpractical.com>'
+build_requires:
+  Test::Fatal: 0
+  Test::More: 0.88
+  Test::Requires: 0
+configure_requires:
+  ExtUtils::MakeMaker: 6.30
+dynamic_config: 0
+generated_by: 'Dist::Zilla version 4.300005, CPAN::Meta::Converter version 2.112150'
+license: perl
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: Class-Load
+requires:
+  Data::OptList: 0
+  Module::Runtime: 0.011
+  Package::Stash: 0.32
+  Scalar::Util: 0
+  Try::Tiny: 0
+resources:
+  bugtracker: http://rt.cpan.org/NoAuth/Bugs.html?Dist=Class-Load
+  repository: git://github.com/autarch/class-load.git
+version: 0.13

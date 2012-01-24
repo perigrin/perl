@@ -1,0 +1,14 @@
+Changes
+LICENSE
+MANIFEST
+META.json
+META.yml
+Makefile.PL
+README
+dist.ini
+lib/B/Hooks/EndOfScope.pm
+t/basic.t
+t/eval.t
+t/exception.t
+t/release-pod-coverage.t
+t/release-pod-syntax.t

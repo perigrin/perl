@@ -1,0 +1,32 @@
+#!/bin/perl
+
+# Copyright 2002-2011, Paul Johnson (pjcj@cpan.org)
+
+# This software is free.  It is licensed under the same terms as Perl itself.
+
+# The latest version of this software should be available from my homepage:
+# http://www.pjcj.net
+
+# __COVER__ changes s/(2[12]             )[23]/$1X/
+# __COVER__ changes s/(22           100      )[12]/$1X/
+
+use lib ();
+
+BEGIN
+{
+    lib->import
+    (
+        sub
+        {
+            print map("[$_]", @_), "\n";
+            return unless $_[1] eq "IncSub.pm";
+            my $fh;
+            open $fh, "tests/IncSub.pm" or die $!;
+            $fh
+        }
+    )
+}
+
+use IncSub;
+
+IncSub::check

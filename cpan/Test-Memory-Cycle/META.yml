@@ -1,0 +1,19 @@
+--- #YAML:1.0
+name:                Test-Memory-Cycle
+version:             1.04
+abstract:            Verifies code hasn't left circular references
+license:             unknown
+generated_by:        ExtUtils::MakeMaker version 6.30_01
+author:              ~
+distribution_type:   module
+requires:     
+    Devel::Cycle:                  1.07
+    Getopt::Long:                  0
+    PadWalker:                     0
+    Test::Builder:                 0
+    Test::Builder::Tester:         0
+    Test::More:                    0
+    Test::Simple:                  0.62
+meta-spec:
+    url: <http://module-build.sourceforge.net/META-spec-new.html>;
+    version: 1.1

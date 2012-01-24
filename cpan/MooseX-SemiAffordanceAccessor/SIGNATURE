@@ -1,0 +1,41 @@
+This file contains message digests of all files listed in MANIFEST,
+signed via the Module::Signature module, version 0.66.
+
+To verify the content in this distribution, first make sure you have
+Module::Signature installed, then type:
+
+    % cpansign -v
+
+It will check each file's integrity, as well as the signature's
+validity.  If "==> Signature verified OK! <==" is not displayed,
+the distribution may already have been compromised, and you should
+not run its Makefile.PL or Build.PL.
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+SHA1 b5e53632f80e92c57625a5561de2cb3709beb24a Changes
+SHA1 5aeafa3a768ba582e538bc1cd0adac740e11d630 INSTALL
+SHA1 c715d20265d2931c7564fc64abfdc4f8ff33e297 LICENSE
+SHA1 b69bda59e45d196cdbced7f1074246d30a38fef3 MANIFEST
+SHA1 d2c28a2e7313fa7d80b1e709001fa43e1419d8ec META.json
+SHA1 b4825f8f4a3bea0ff990eec3230f5889600fcb40 META.yml
+SHA1 af3f39445a2f56506ed8f0cbc6834372d5d11e1e Makefile.PL
+SHA1 f04dc494b14a2002cc6267f0326178f8e56a4ab3 README
+SHA1 14c31b7a733f73056f12c9089b96f43c4090a9ba dist.ini
+SHA1 2cf03c6072732efb36dd25e5e84f85c535b7136a lib/MooseX/SemiAffordanceAccessor.pm
+SHA1 a849fa660976bdacc39a5fb7210f133067d53107 lib/MooseX/SemiAffordanceAccessor/Role/Attribute.pm
+SHA1 83e847e61c6555edf9e0db8457521284aeb626f5 t/basic.t
+SHA1 a032c41ef6887fab1b900669c2d304fab46680e2 t/release-eol.t
+SHA1 455d1dd1867212a665ad5ea4126b572411de300c t/release-no-tabs.t
+SHA1 9433c240fe590bc404ab68ff63984df763e347ed t/release-pod-coverage.t
+SHA1 cb3e2ea10fc7e63d3c8c82561439919d5780bace t/release-pod-spell.t
+SHA1 9775e90d40f094f3e5a23c695d6e6e436a2232c3 t/release-pod-syntax.t
+SHA1 bb0b396b32ac01782231982e84367ece15d568d4 t/role.t
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.10 (GNU/Linux)
+
+iEYEARECAAYFAk1pTCgACgkQIgMCsV8qvRLGJwCfXbZUpxb8zratHzyVQAgonYAR
+beIAn0ojBh282CLNgI5dmvgCkjyviLVI
+=ob67
+-----END PGP SIGNATURE-----

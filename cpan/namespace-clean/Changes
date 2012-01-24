@@ -1,0 +1,109 @@
+    [0.22] (official fix of all the %^H ickyness)
+        - Simplify the >= 5.10 PP variant even more - move the hook from
+          DESTROY into DELETE
+        - Force explicit callback invocation order on 5.8 PP
+
+    [0.21_02]
+        - Replace the %^H tie approach with fieldhashes, fixes all known
+          corner cases and caveats on supported perls >= 5.8.1 (FC)
+        - Compile away the debugger fixup on perls >= 5.15.5 (FC)
+
+    [0.21_01]
+        - More robust handling of the tied %^H in pure perl mode (RT#73402)
+        - Limit the debugger workarounds to perls between 5.8.8 and 5.14,
+          extend debugger support to all perl versions (FC) (RT#69862)
+        - If possible, automatically install (but not load) the debugger
+          workaround libraries on perls between 5.8.8 and 5.14 (RT#72368)
+        - Add back dropped NAME section (RT#70259)
+
+    [0.21]
+        - When using the tie() fallback ensure we do not obliterate a
+          foreign tie()
+        - Better document how to disable the tie() fallback
+
+    [0.20_01] (the "mst made me do it" release)
+        - Only invoke the deleted sub stashing if we run udner a debugger
+          (avoid runtime penalty of Sub::Name/Sub::Identify)
+        - Spellfixes (RT#54388)
+        - When B::Hooks::EndOfScope is not available, switch to a simple
+          tie() of %^H. While it can not 100% replace B::H::EOS, it does
+          everything n::c needs
+
+    [0.20]
+        - Bump Package::Stash dependency to 0.22 to pull in a bugfix in
+          Package::Stash::XS 0.19.
+
+    [0.19]
+        - Port to the new Package::Stash 0.18 API and depend on it.
+        - Don't rely on package::stash's remove_package_symbol implementation
+          (doy).
+
+    [0.18]
+        - Make sure we continue working on future Package::Stash
+          versions (doy).
+
+    [0.17]
+        - Make sure the debugger author test is skipped for
+          non-authors before the debugger is even loaded.
+
+    [0.16]
+        - Release all changes of 0.15 as part of a stable release.
+        - Convert from Module::Install to Dist::Zilla.
+
+    [0.15] TRIAL release
+        - Use Package::Stash for the stash manipulation bits (doy).
+
+    [0.14] Thu Mar 18 11:15:38 CET 2010
+        - Disable auto_install.
+        - Turn the error prone debugger test into an author test.
+
+    [0.13] Sun Jan 17 02:40:48 CET 2010
+        - Skip failing debugger tests on 5.8.8 and older.
+
+    [0.12] Thu Jan 14 03:22:03 CET 2010
+        - Stop relying on stash entries always being upgraded into real GVs
+          (Zefram).
+        - Work around $DB::sub (Yuval Kogman).
+        - Fix restoring of non-code symbols when cleaning (Ben Morrows).
+
+    [0.11] Tue Mar  3 17:34:49 CET 2009
+        - Added -cleanee option to specify the package to clean (Closes
+          RT#41850).
+        - Added n:c->clean_subroutines($cleanee, @subs).
+
+    [0.10] Fri Feb 20 14:31:36 CET 2009
+        - Depend on B::Hooks::EndOfScope 0.07 to avoid segfaults and lost error
+          messages when something goes wrong.
+
+    [0.09] Wed Oct 22 17:48:49 CEST 2008
+        - Use B::Hooks::EndOfScope instead of %^H + Scope::Guard.
+
+    [0.08] Sun Mar  9 22:01:01 CET 2008
+        - Added explicit cleanup behaviour
+
+    [0.07] Sun Mar  9 20:13:33 CET 2008
+        - Switched from Filter::EOF to a much saner implementation via
+          %^H and Scope::Guard. (mst & autobox)++ for this.
+
+    [0.06] Wed Feb 20 15:09:00 CET 2008
+        - Fixed 'uninitialized value in ref-to-glob cast' error
+          if unimport was used before.
+
+    [0.05] Sun Aug 12 18:24:49 CEST 2007
+        - Minor POD improvements
+        - -except now accepts a single value too
+
+    [0.04] Sat Mar 17 16:22:10 CET 2007
+        - Added -except flag
+        - Non-CODE type slots will not be removed
+
+    [0.03] Sat Feb 24 22:34:55 CET 2007
+        - Minor comment and POD cleanups
+        - Tried to clarify how the module works
+
+    [0.02] Tue Feb 20 00:38:24 CET 2007
+        - Added unimport behaviour
+
+    [0.01] Sun Feb 18 17:33:18 CET 2007
+        - Initial Version
+

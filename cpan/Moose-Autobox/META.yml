@@ -1,0 +1,31 @@
+---
+abstract: 'Autoboxed wrappers for Native Perl datatypes '
+author:
+  - 'Stevan Little <stevan@iinteractive.com>'
+build_requires:
+  ExtUtils::MakeMaker: 6.42
+  Test::Exception: 0.21
+  Test::More: 0.89
+configure_requires:
+  ExtUtils::MakeMaker: 6.42
+distribution_type: module
+generated_by: 'Module::Install version 0.95'
+license: perl
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: Moose-Autobox
+no_index:
+  directory:
+    - examples
+    - inc
+    - t
+    - xt
+requires:
+  Moose: 0.42
+  Perl6::Junction: 1.40000
+  autobox: 2.23
+  perl: 5.6.0
+resources:
+  license: http://dev.perl.org/licenses/
+version: 0.11

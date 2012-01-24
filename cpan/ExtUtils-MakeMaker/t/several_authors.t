@@ -37,7 +37,9 @@ END {
 ok( chdir $MakeMaker::Test::Setup::SAS::dirname, "entering dir $MakeMaker::Test::Setup::SAS::dirname" ) ||
     diag("chdir failed: $!");
 
-note "argument verification"; {
+{
+    # ----- argument verification -----
+
     my $stdout = tie *STDOUT, 'TieOut';
     ok( $stdout, 'capturing stdout' );
     my $warnings = '';
@@ -57,7 +59,9 @@ note "argument verification"; {
 }
 
 
-note "argument verification via CONFIGURE"; {
+{
+    # ----- argument verification -----
+
     my $stdout = tie *STDOUT, 'TieOut';
     ok( $stdout, 'capturing stdout' );
     my $warnings = '';
@@ -79,7 +83,8 @@ note "argument verification via CONFIGURE"; {
 }
 
 
-note "generated files verification"; {
+# ----- generated files verification -----
+{
     unlink $makefile;
     my @mpl_out = run(qq{$perl Makefile.PL});
     END { unlink $makefile, makefile_backup() }
@@ -89,7 +94,8 @@ note "generated files verification"; {
 }
 
 
-note "ppd output"; {
+# ----- ppd output -----
+{
     my $ppd_file = 'Multiple-Authors.ppd';
     my @make_out = run(qq{$make ppd});
     END { unlink $ppd_file }
@@ -104,7 +110,8 @@ note "ppd output"; {
 }
 
 
-note "META.yml output"; {
+# ----- META.yml output -----
+{
     my $distdir  = 'Multiple-Authors-0.05';
     $distdir =~ s{\.}{_}g if $Is_VMS;
 
@@ -115,10 +122,14 @@ note "META.yml output"; {
 
     cmp_ok( $?, '==', 0, 'Make metafile exiting normally' ) || diag(@make_out);
 
-    for my $case (
+    SKIP: {
+      skip "CPAN::Meta required", 4
+        unless eval { require CPAN::Meta };
+
+      for my $case (
         ['META.yml', $meta_yml],
         ['META.json', $meta_json],
-    ) {
+      ) {
         my ($label, $meta_name) = @$case;
         ok(
           my $obj = eval {
@@ -133,5 +144,8 @@ note "META.yml output"; {
           ],
           "$label content good"
         );
+      }
     }
 }
+
+__END__

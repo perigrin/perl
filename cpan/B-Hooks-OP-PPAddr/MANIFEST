@@ -1,0 +1,22 @@
+Changes
+hook_op_ppaddr.h
+inc/Module/Install.pm
+inc/Module/Install/Base.pm
+inc/Module/Install/Can.pm
+inc/Module/Install/ExtraTests.pm
+inc/Module/Install/Fetch.pm
+inc/Module/Install/Makefile.pm
+inc/Module/Install/Metadata.pm
+inc/Module/Install/Win32.pm
+inc/Module/Install/WriteAll.pm
+lib/B/Hooks/OP/PPAddr.pm
+Makefile.PL
+MANIFEST			This list of files
+MANIFEST.SKIP
+META.yml
+PPAddr.xs
+ppport.h
+ptable.h
+README
+t/use.t
+xt/author/pod.t

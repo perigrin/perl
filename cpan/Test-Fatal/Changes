@@ -1,0 +1,30 @@
+Revision history for Test-Fatal
+
+0.008     2011-11-06 21:10:14 America/New_York
+          no changes since 0.007
+
+0.007     2011-10-31 23:22:47 America/New_York
+          revert the mistake by which 0.004 allowed blocks after "exception" as
+          well as "success"
+
+0.006     2011-06-01 22:55:10 America/New_York
+          crank back the Test::More and Exporter requirements
+
+          add lives_ok and dies_ok emulation (thanks, Paul "LeoNerd" Evans)
+
+0.005     2011-04-26 07:50:48 America/New_York
+          fix the logic that picks tests for 5.13.1+ (thanks, Zefram)
+
+0.004     2011-04-25 11:57:59 America/New_York
+          success blocks now allow trailing blocks like finally, catch, etc.
+            (thanks, Joel Bernstein)
+
+0.003     2010-10-28 22:10:59 America/New_York
+          more tests for false exceptions, especially on 5.13
+
+0.002     2010-10-28 00:11:09 America/New_York
+          add tests for handling of false exceptions
+          fix precedence error in documentation (thanks, ether)
+
+0.001     2010-10-24 00:23:24 America/New_York
+          first release

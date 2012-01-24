@@ -1,7 +1,7 @@
 package ExtUtils::MM_Any;
 
 use strict;
-our $VERSION = '6.63_02';
+our $VERSION = '6.62';
 
 use Carp;
 use File::Spec;
@@ -206,40 +206,25 @@ sub _expand_macros {
 
     my @commands = $MM->echo($text);
     my @commands = $MM->echo($text, $file);
-    my @commands = $MM->echo($text, $file, \%opts);
+    my @commands = $MM->echo($text, $file, $appending);
 
 Generates a set of @commands which print the $text to a $file.
 
 If $file is not given, output goes to STDOUT.
 
-If $opts{append} is true the $file will be appended to rather than
-overwritten.  Default is to overwrite.
-
-If $opts{allow_variables} is true, make variables of the form
-C<$(...)> will not be escaped.  Other C<$> will.  Default is to escape
-all C<$>.
-
-Example of use:
-
-    my $make = map "\t$_\n", $MM->echo($text, $file);
+If $appending is true the $file will be appended to rather than
+overwritten.
 
 =cut
 
 sub echo {
-    my($self, $text, $file, $opts) = @_;
+    my($self, $text, $file, $appending) = @_;
+    $appending ||= 0;
 
-    # Compatibility with old options
-    if( !ref $opts ) {
-        my $append = $opts;
-        $opts = { append => $append || 0 };
-    }
-    $opts->{allow_variables} = 0 unless defined $opts->{allow_variables};
-
-    my $ql_opts = { allow_variables => $opts->{allow_variables} };
-    my @cmds = map { '$(NOECHO) $(ECHO) '.$self->quote_literal($_, $ql_opts) } 
+    my @cmds = map { '$(NOECHO) $(ECHO) '.$self->quote_literal($_) } 
                split /\n/, $text;
     if( $file ) {
-        my $redirect = $opts->{append} ? '>>' : '>';
+        my $redirect = $appending ? '>>' : '>';
         $cmds[0] .= " $redirect $file";
         $_ .= " >> $file" foreach @cmds[1..$#cmds];
     }
@@ -349,53 +334,11 @@ to include more flexible code and switches.
 =head3 quote_literal  I<Abstract>
 
     my $safe_text = $MM->quote_literal($text);
-    my $safe_text = $MM->quote_literal($text, \%options);
 
 This will quote $text so it is interpreted literally in the shell.
 
 For example, on Unix this would escape any single-quotes in $text and
 put single-quotes around the whole thing.
-
-If $options{allow_variables} is true it will leave C<'$(FOO)'> make
-variables untouched.  If false they will be escaped like any other
-C<$>.  Defaults to true.
-
-=head3 escape_dollarsigns
-
-    my $escaped_text = $MM->escape_dollarsigns($text);
-
-Escapes stray C<$> so they are not interpreted as make variables.
-
-It lets by C<$(...)>.
-
-=cut
-
-sub escape_dollarsigns {
-    my($self, $text) = @_;
-
-    # Escape dollar signs which are not starting a variable
-    $text =~ s{\$ (?!\() }{\$\$}gx;
-
-    return $text;
-}
-
-
-=head3 escape_all_dollarsigns
-
-    my $escaped_text = $MM->escape_all_dollarsigns($text);
-
-Escapes all C<$> so they are not interpreted as make variables.
-
-=cut
-
-sub escape_all_dollarsigns {
-    my($self, $text) = @_;
-
-    # Escape dollar signs
-    $text =~ s{\$}{\$\$}gx;
-
-    return $text;
-}
 
 
 =head3 escape_newlines  I<Abstract>
@@ -1950,14 +1893,15 @@ sub init_VERSION {
 }
 
 
-=head3 init_tools
+=head3 init_others
 
-    $MM->init_tools();
+    $MM->init_others();
 
-Initializes the simple macro definitions used by tools_other() and
-places them in the $MM object.  These use conservative cross platform
-versions and should be overridden with platform specific versions for
-performance.
+Initializes the macro definitions used by tools_other() and places them
+in the $MM object.
+
+If there is no description, its the same as the parameter to
+WriteMakefile() documented in ExtUtils::MakeMaker.
 
 Defines at least these macros.
 
@@ -1965,6 +1909,11 @@ Defines at least these macros.
 
   NOOP              Do nothing
   NOECHO            Tell make not to display the command itself
+
+  MAKEFILE
+  FIRST_MAKEFILE
+  MAKEFILE_OLD
+  MAKE_APERL_FILE   File used by MAKE_APERL
 
   SHELL             Program used to run shell commands
 
@@ -1984,7 +1933,7 @@ Defines at least these macros.
 
 =cut
 
-sub init_tools {
+sub init_others {
     my $self = shift;
 
     $self->{ECHO}     ||= $self->oneliner('print qq{@ARGV}', ['-l']);
@@ -2017,18 +1966,6 @@ CODE
     $self->{UNINST}     ||= 0;
     $self->{VERBINST}   ||= 0;
 
-    $self->{SHELL}              ||= $Config{sh};
-
-    # UMASK_NULL is not used by MakeMaker but some CPAN modules
-    # make use of it.
-    $self->{UMASK_NULL}         ||= "umask 0";
-
-    # Not the greatest default, but its something.
-    $self->{DEV_NULL}           ||= "> /dev/null 2>&1";
-
-    $self->{NOOP}               ||= '$(TRUE)';
-    $self->{NOECHO}             = '@' unless defined $self->{NOECHO};
-
     $self->{FIRST_MAKEFILE}     ||= $self->{MAKEFILE} || 'Makefile';
     $self->{MAKEFILE}           ||= $self->{FIRST_MAKEFILE};
     $self->{MAKEFILE_OLD}       ||= $self->{MAKEFILE}.'.old';
@@ -2042,24 +1979,17 @@ CODE
     $self->{MACROSTART}         ||= '';
     $self->{MACROEND}           ||= '';
 
-    return;
-}
+    $self->{SHELL}              ||= $Config{sh};
 
+    # UMASK_NULL is not used by MakeMaker but some CPAN modules
+    # make use of it.
+    $self->{UMASK_NULL}         ||= "umask 0";
 
-=head3 init_others
+    # Not the greatest default, but its something.
+    $self->{DEV_NULL}           ||= "> /dev/null 2>&1";
 
-    $MM->init_others();
-
-Initializes the macro definitions having to do with compiling and
-linking used by tools_other() and places them in the $MM object.
-
-If there is no description, its the same as the parameter to
-WriteMakefile() documented in ExtUtils::MakeMaker.
-
-=cut
-
-sub init_others {
-    my $self = shift;
+    $self->{NOOP}               ||= '$(TRUE)';
+    $self->{NOECHO}             = '@' unless defined $self->{NOECHO};
 
     $self->{LD_RUN_PATH} = "";
 
@@ -2100,7 +2030,7 @@ sub init_others {
                         : ($Config{usedl} ? 'dynamic' : 'static');
     }
 
-    return;
+    return 1;
 }
 
 

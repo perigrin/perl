@@ -1,0 +1,35 @@
+---
+abstract: 'A Moose role for setting attributes from a simple configfile'
+author:
+  - 'Brandon L. Black, <blblack@gmail.com>'
+build_requires:
+  ExtUtils::MakeMaker: 6.42
+  Test::More: 0.88
+configure_requires:
+  ExtUtils::MakeMaker: 6.42
+distribution_type: module
+generated_by: 'Module::Install version 0.99'
+license: perl
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: MooseX-SimpleConfig
+no_index:
+  directory:
+    - inc
+    - t
+provides:
+  MooseX::SimpleConfig:
+    file: lib/MooseX/SimpleConfig.pm
+    version: 0.09
+requires:
+  Config::Any: 0.13
+  Moose: 0.35
+  MooseX::ConfigFromFile: 0.02
+  Test::More: 0.88
+resources:
+  IRC: irc://irc.perl.org/#moose
+  MailingList: http://news.gmane.org/gmane.comp.lang.perl.moose
+  license: http://dev.perl.org/licenses/
+  repository: git://git.moose.perl.org/MooseX-SimpleConfig.git
+version: 0.09

@@ -1,0 +1,20 @@
+Build.PL
+Changes
+lib/Test/Differences.pm
+Makefile.PL
+MANIFEST
+README
+t/00-load.t
+t/flatten.t
+t/text_vs_data.t
+t/pass.t
+t/struct.t
+t/test.t
+t/undef.t
+t/example.t
+t/diff_styles.t
+t/boilerplate.t
+t/pod-coverage.t
+t/pod.t
+t/regression.t
+META.yml                                 Module meta-data (added by MakeMaker)

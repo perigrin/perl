@@ -1,0 +1,13 @@
+Changes
+LICENSE
+MANIFEST
+META.json
+META.yml
+Makefile.PL
+README
+dist.ini
+lib/IO/TieCombine.pm
+lib/IO/TieCombine/Handle.pm
+lib/IO/TieCombine/Scalar.pm
+t/basic.t
+t/release-pod-syntax.t

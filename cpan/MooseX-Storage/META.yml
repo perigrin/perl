@@ -1,0 +1,30 @@
+---
+abstract: 'A serialization framework for Moose classes'
+author:
+  - 'Chris Prather <chris.prather@iinteractive.com>'
+build_requires:
+  ExtUtils::MakeMaker: 6.42
+  Test::Deep: 0
+  Test::Exception: 0
+  Test::More: 0.88
+  Test::Requires: 0.05
+configure_requires:
+  ExtUtils::MakeMaker: 6.42
+distribution_type: module
+generated_by: 'Module::Install version 0.99'
+license: perl
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: MooseX-Storage
+no_index:
+  directory:
+    - inc
+    - t
+requires:
+  Moose: 0.99
+  String::RewritePrefix: 0
+resources:
+  license: http://dev.perl.org/licenses/
+  repository: git://git.moose.perl.org/MooseX-Storage.git
+version: 0.30

@@ -1,0 +1,53 @@
+{
+   "abstract" : "XS implementation of parts of Class::Load",
+   "author" : [
+      "Dave Rolsky <autarch@urth.org>"
+   ],
+   "dynamic_config" : 0,
+   "generated_by" : "Dist::Zilla version 4.300002, CPAN::Meta::Converter version 2.112150",
+   "license" : [
+      "artistic_2"
+   ],
+   "meta-spec" : {
+      "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+      "version" : "2"
+   },
+   "name" : "Class-Load-XS",
+   "prereqs" : {
+      "build" : {
+         "requires" : {
+            "Module::Build" : "0.3601"
+         }
+      },
+      "configure" : {
+         "requires" : {
+            "Module::Build" : "0.3601"
+         }
+      },
+      "runtime" : {
+         "requires" : {
+            "Class::Load" : "0.11"
+         }
+      },
+      "test" : {
+         "requires" : {
+            "Test::Fatal" : 0,
+            "Test::More" : "0.88"
+         }
+      }
+   },
+   "release_status" : "stable",
+   "resources" : {
+      "bugtracker" : {
+         "mailto" : "bug-class-load-xs@rt.cpan.org",
+         "web" : "http://rt.cpan.org/NoAuth/Bugs.html?Dist=Class-Load-XS"
+      },
+      "repository" : {
+         "type" : "git",
+         "url" : "git://git.urth.org/Class-Load-XS.git",
+         "web" : "http://git.urth.org/Class-Load-XS.git"
+      }
+   },
+   "version" : "0.03"
+}
+

@@ -1,0 +1,52 @@
+{
+   "abstract" : "turn your Moose class into a singleton",
+   "author" : [
+      "Shawn M Moore <sartak@gmail.com>"
+   ],
+   "dynamic_config" : 0,
+   "generated_by" : "Dist::Zilla version 4.300003, CPAN::Meta::Converter version 2.112150",
+   "license" : [
+      "perl_5"
+   ],
+   "meta-spec" : {
+      "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+      "version" : "2"
+   },
+   "name" : "MooseX-Singleton",
+   "prereqs" : {
+      "build" : {
+         "requires" : {
+            "ExtUtils::MakeMaker" : "6.42",
+            "Test::Fatal" : 0,
+            "Test::More" : "0.88",
+            "Test::Requires" : 0
+         }
+      },
+      "configure" : {
+         "requires" : {
+            "ExtUtils::MakeMaker" : "6.30"
+         }
+      },
+      "runtime" : {
+         "requires" : {
+            "Moose" : "1.10",
+            "Scalar::Util" : 0
+         }
+      }
+   },
+   "release_status" : "stable",
+   "resources" : {
+      "bugtracker" : {
+         "mailto" : "bug-moosex-singleton@rt.cpan.org",
+         "web" : "http://rt.cpan.org/NoAuth/Bugs.html?Dist=MooseX-Singleton"
+      },
+      "repository" : {
+         "type" : "git",
+         "url" : "git://git.moose.perl.org/MooseX-Singleton.git",
+         "web" : "http://git.shadowcat.co.uk/gitweb/gitweb.cgi?p=gitmo/MooseX-Singleton.git;a=summary"
+      }
+   },
+   "version" : "0.29",
+   "x_authority" : "cpan:SARTAK"
+}
+

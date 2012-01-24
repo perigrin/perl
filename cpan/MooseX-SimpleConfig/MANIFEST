@@ -1,0 +1,26 @@
+ChangeLog
+inc/Module/AutoInstall.pm
+inc/Module/Install.pm
+inc/Module/Install/AutoInstall.pm
+inc/Module/Install/Base.pm
+inc/Module/Install/Can.pm
+inc/Module/Install/Fetch.pm
+inc/Module/Install/Include.pm
+inc/Module/Install/Makefile.pm
+inc/Module/Install/Metadata.pm
+inc/Module/Install/Win32.pm
+inc/Module/Install/WriteAll.pm
+lib/MooseX/SimpleConfig.pm
+Makefile.PL
+MANIFEST			This list of files
+META.yml
+README
+t/01use.t
+t/10simple.t
+t/11default.t
+t/12config_any_args.t
+t/lib/MXDefaultConfigTest.pm
+t/lib/MXDefaultMultipleConfigsTest.pm
+t/lib/MXDriverArgsConfigTest.pm
+t/lib/MXSimpleConfigTest.pm
+t/multiple.t

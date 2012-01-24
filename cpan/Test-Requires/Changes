@@ -1,0 +1,28 @@
+Revision history for Perl extension Test::Requires
+
+0.06
+
+        - support Perl 5.6.0 or later. Because Mouse need to support it.
+          (gfx)
+
+0.05
+
+        - requires Test::More 0.61 or later, because Test::Builder::Module was
+          first appeared at 0.60_02.
+          (suggested by miyagawa++)
+
+0.04
+
+        - no Test::Base (miyagawa)
+
+0.03
+
+        - support older test::builder
+          (reported by tomyhero++)
+
+0.02
+
+        - remove hacky stuff
+
+0.01    Fri Jul  3 08:34:33 2009
+        - original version

@@ -27,7 +27,7 @@ use ExtUtils::MakeMaker qw( neatvalue );
 require ExtUtils::MM_Any;
 require ExtUtils::MM_Unix;
 our @ISA = qw( ExtUtils::MM_Any ExtUtils::MM_Unix );
-our $VERSION = '6.63_02';
+our $VERSION = '6.62';
 
 $ENV{EMXSHELL} = 'sh'; # to run `commands`
 
@@ -141,13 +141,21 @@ sub init_DIRFILESEP {
                                                        : '\\';
 }
 
-=item init_tools
+=item B<init_others>
 
-Override some of the slower, portable commands with Windows specific ones.
+Override some of the Unix specific commands with portable
+ExtUtils::Command ones.
+
+Also provide defaults for LD and AR in case the %Config values aren't
+set.
+
+LDLOADLIBS's default is changed to $Config{libs}.
+
+Adjustments are made for Borland's quirks needing -L to come first.
 
 =cut
 
-sub init_tools {
+sub init_others {
     my ($self) = @_;
 
     $self->{NOOP}     ||= 'rem';
@@ -157,32 +165,13 @@ sub init_tools {
       "\$(PERLRUN) $self->{PERL_SRC}/win32/bin/pl2bat.pl" : 
       'pl2bat.bat';
 
-    $self->SUPER::init_tools;
-
-    # Setting SHELL from $Config{sh} can break dmake.  Its ok without it.
-    delete $self->{SHELL};
-
-    return;
-}
-
-
-=item init_others
-
-Override the default link and compile tools.
-
-LDLOADLIBS's default is changed to $Config{libs}.
-
-Adjustments are made for Borland's quirks needing -L to come first.
-
-=cut
-
-sub init_others {
-    my $self = shift;
-
     $self->{LD}     ||= 'link';
     $self->{AR}     ||= 'lib';
 
     $self->SUPER::init_others;
+
+    # Setting SHELL from $Config{sh} can break dmake.  Its ok without it.
+    delete $self->{SHELL};
 
     $self->{LDLOADLIBS} ||= $Config{libs};
     # -Lfoo must come first for Borland, so we put it in LDDLFLAGS
@@ -198,7 +187,7 @@ sub init_others {
         $self->{LDDLFLAGS} .= " $libpath";
     }
 
-    return;
+    return 1;
 }
 
 
@@ -496,8 +485,7 @@ sub oneliner {
 
 
 sub quote_literal {
-    my($self, $text, $opts) = @_;
-    $opts->{allow_variables} = 1 unless defined $opts->{allow_variables};
+    my($self, $text) = @_;
 
     # See: http://www.autohotkey.net/~deleyd/parameters/parameters.htm#CPP
 
@@ -519,9 +507,6 @@ sub quote_literal {
         $text =~ s/{/{{/g;
         $text =~ s/}/}}/g;
     }
-
-    $text = $opts->{allow_variables}
-      ? $self->escape_dollarsigns($text) : $self->escape_all_dollarsigns($text);
 
     return $text;
 }

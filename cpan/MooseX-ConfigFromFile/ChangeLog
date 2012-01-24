@@ -1,0 +1,18 @@
+Revision history for Perl extension MooseX::ConfigFromFile
+
+0.04 - Dec 17, 2011
+    - Call the configfile attribute default sub if it is a sub, not just a
+      string, just like MooseX::Getopt does (RT#73325, Karen Etheridge)
+
+0.03 - Dec 18, 2010
+    - The test suite now uses Test::Fatal instead of Test::Exception (Karen
+      Etheridge).
+    - Fix bug reported by Strayph in #moose with inheritance RT#63624 (perigrin)
+    - Add repository metadata
+    - Fix RT#57023, RT#49369.
+
+0.02 - Jan 23, 2008
+    - Honor any default supplied for the configfile attribute
+
+0.01 - Dec 18, 2007
+    - Initial release

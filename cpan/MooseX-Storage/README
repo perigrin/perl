@@ -1,0 +1,41 @@
+MooseX-Storage version 0.30
+
+INSTALLATION
+
+To install this module, run the following commands:
+
+    perl Makefile.PL
+    make
+    make test
+    make install
+
+Alternatively, to install with Module::Build, you can use the following commands:
+
+    perl Build.PL
+    ./Build
+    ./Build test
+    ./Build install
+
+DEPENDENCIES
+
+    Moose
+    JSON::Any
+    Best (in order to load a YAML file)
+    IO::File
+    
+OPTIONAL DEPENDENCIES
+
+    IO::AtomicFile
+    Test::YAML::Valid
+    Test::JSON
+    Digest
+    Digest::SHA1
+    Data::Dumper
+
+COPYRIGHT AND LICENCE
+
+Copyright (C) 2007-2008 Infinity Interactive
+
+This library is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself.
+
